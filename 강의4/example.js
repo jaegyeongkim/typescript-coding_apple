@@ -1,3 +1,4 @@
+"use strict";
 // Q1
 function 이름출력(name) {
     if (!!name) {

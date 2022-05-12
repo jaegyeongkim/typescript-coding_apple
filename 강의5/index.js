@@ -1,3 +1,4 @@
+"use strict";
 // Type이 아직 하나로 확정되지 않았을 경우 Type Narrowing 써야합니다. -> 꼭 지켜야할 코딩 방식
 // 어떤 변수가 타입이 아직 불활식하면 if문 등으로 Narrowgin 해줘야 조작 가능
 // Type Narrowing: 타입을 거른다.

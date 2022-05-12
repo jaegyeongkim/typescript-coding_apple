@@ -1,3 +1,4 @@
+"use strict";
 // Q1
 let 이름index2 = "김재경";
 let 나이index2 = 29;

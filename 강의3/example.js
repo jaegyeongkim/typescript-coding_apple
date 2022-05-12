@@ -1,3 +1,4 @@
+"use strict";
 // Q1
 let user = "kim";
 let age = undefined;

@@ -1,3 +1,4 @@
+"use strict";
 let 이름3 = "kim";
 let 나이 = 50;
 let 결혼했니 = true;

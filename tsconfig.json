@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
     "jsx": "preserve"
-  }
+  },
+  "extends": "@tsconfig/node16/tsconfig.json"
 }

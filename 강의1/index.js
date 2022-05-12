@@ -1,3 +1,4 @@
+"use strict";
 // 변수 옆에 type 설정해줌
 let 이름 = "kim";
 let 이름array = ["kim", "park"];
