@@ -1,4 +1,4 @@
-`tip`
+`tip` && `기타 배운 점`
 
 - ts → js 바로 라이브로 변환하는 방법
   tsc -w // 저장할때마다 자동으로 ts, tsx 파일을 js, jsx 파일 변환해서 만들어줌
@@ -6,6 +6,23 @@
   ts 파일 실행시키려면 `index.html` 만든 다음에 script 에서 js 파일 임포트해서 하면 됨
   걍 `Code Runner` 다운 받아서 실행해도 됨
   참고: [https://kay-log.tistory.com/13](https://kay-log.tistory.com/13)
+- `tsconfig.json`
+  어떤 게 맞는 것인가 아주 어렵다 이말이지
+  그렇다면 node.js 버전에 맞는 친구로 걍 진행해버리는 게 어떠하냐?
+  참고: [https://github.com/tsconfig/bases#centralized-recommendations-for-tsconfig-bases](https://github.com/tsconfig/bases#centralized-recommendations-for-tsconfig-bases)
+  내 버전은 `node 16` 이기 때문에 설치하고 걍 `tsconfig.json` 에 박아버리면 됨
+  ```bash
+  npm install --save-dev @tsconfig/node16
+  ```
+  `tsconfig.json`
+  ```json
+  "extends": "@tsconfig/node16/tsconfig.json"
+  ```
+- `Array.isArray`
+  배열인지 확인하는 함수
+  ```jsx
+  Array.isArray(x); // true or false
+  ```
 
 ## 1강
 
@@ -14,7 +31,7 @@
 ```json
 {
   "compilerOptions": {
-    "target": "es5", // es3, es5 es2 등 가능
+    "target": "es6", // es3, es5 es2 등 가능
     "module": "commonjs", // 무슨 import 문법 쓸 건지 commonjs, amd, es2015, esnext
     "jsx": "preserve" // tsx 파일을 jsx로 어떻게 컴파일할 것인지
   }
