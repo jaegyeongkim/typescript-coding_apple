@@ -58,9 +58,13 @@ let 이름언논: unknown;
 // 변수1 = 이름언논; -> 에러 발생 할당 불가능
 ```
 
+## 3강
+
 `엄격한 연산`
 
 지금 변경하려는 변수의 타입이 확실해야 연산을 수행해준다.
+
+ts는 엄격한 연산만 가능하다!!!
 
 ```tsx
 let 나이3: string | number;
@@ -68,4 +72,29 @@ let 나이3: string | number;
 
 let 나이4: unknown = 1;
 나이4 - 1; // 에러 발생 -> unknown !== number 타입이 다르다.
+```
+
+## 4강
+
+`함수 && 파라미터 옵션`
+
+```tsx
+function 함수(x?: number): number {
+  // function 함수(x: number | undefined): number {
+  // x: 파라미터
+  // ?: 옵션. 있거나 말거나. 들어올 수 있다. => x?: number === x: number | undefined
+  // x: number -> x 파라미터 타입 지정
+  // :number -> return 타입 지정
+
+  return x * 2;
+}
+```
+
+`void 함수`
+
+```tsx
+// return 없는 함수
+function 함수void(x: number): void {
+  1 + 1;
+}
 ```
