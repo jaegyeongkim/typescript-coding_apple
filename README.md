@@ -98,3 +98,5 @@ function 함수void(x: number): void {
   1 + 1;
 }
 ```
+
+`!!` 함수 → 값을 boolean으로 표현해준다.

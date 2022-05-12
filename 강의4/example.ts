@@ -1,14 +1,33 @@
-function 함수4(x?: number): number {
-  // function 함수(x: number | undefined): number {
-  // x: 파라미터
-  // ?: 옵션. 있거나 말거나. 들어올 수 있다. => x?: number === x: number | undefined
-  // x: number -> x 파라미터 타입 지정
-  // :number -> return 타입 지정
-
-  return x * 2;
+// Q1
+function 이름출력(name?: string): void {
+  if (!!name) {
+    console.log(`안녕하세요 ${name}`);
+  } else {
+    console.log("이름이 없습니다.");
+  }
 }
 
-// return 없는 함수
-function 함수void(x: number): void {
-  1 + 1;
+// 이름출력();
+// 이름출력("홍길동");
+
+// Q2
+function 자리수출력(x: string | number): number {
+  return x.toString().length;
 }
+
+// console.log(자리수출력("234"));
+// console.log(자리수출력(3458976));
+
+// Q3
+function 결혼가능하니(
+  소득: number,
+  집보유: boolean,
+  매력: string
+): string | void {
+  let total: number = 소득;
+  if (집보유) total += 500;
+  if (매력 === "상") total += 100;
+  if (total >= 600) return "결혼가능";
+}
+// console.log(결혼가능하니(700, false, "중"));
+// console.log(결혼가능하니(100, false, "상"));
