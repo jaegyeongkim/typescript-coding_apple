@@ -1,8 +1,13 @@
-## 1강
+`tip`
 
-```bash
-tsc -w // 저장할때마다 자동으로 ts, tsx 파일을 js, jsx 파일 변환해서 만들어줌
-```
+- ts → js 바로 라이브로 변환하는 방법
+  tsc -w // 저장할때마다 자동으로 ts, tsx 파일을 js, jsx 파일 변환해서 만들어줌
+- .ts 파일 실행시키는 방법
+  ts 파일 실행시키려면 `index.html` 만든 다음에 script 에서 js 파일 임포트해서 하면 됨
+  걍 `Code Runner` 다운 받아서 실행해도 됨
+  참고: [https://kay-log.tistory.com/13](https://kay-log.tistory.com/13)
+
+## 1강
 
 `tsconfig.json`
 
@@ -100,3 +105,38 @@ function 함수void(x: number): void {
 ```
 
 `!!` 함수 → 값을 boolean으로 표현해준다.
+
+## 5강
+
+`Narrowing`: Type을 거른다.
+
+Type이 아직 하나로 확정되지 않았을 경우 Type Narrowing 써야합니다. -> 꼭 지켜야할 코딩 방식
+
+어떤 변수가 타입이 아직 불활식하면 if문 등으로 Narrowgin 해줘야 조작 가능
+
+```tsx
+function 내함수(x: number | string) {
+  if (typeof x === "string") {
+    return x + "1";
+  } else {
+    return x + 1;
+  }
+}
+```
+
+`assertion`: Type 덮어쓰기
+
+```tsx
+function 내함수3(x: number | string) {
+  let array: number[] = [];
+  array[0] = x as number; // x의 타입을 number로 덮어씌워주세요
+}
+```
+
+assertion 막 쓰지 마라! 문법의 용도는 다음과 같다.
+
+1. Narrowing 할 때
+
+2. 무슨 타입이 들어올지 100% 확실할 때 쓴다. 정말 확실할때!!! -> 근데 그냥 if문 쓰면 되는건데...
+
+so... 남이 짠 코드 수정할때 / 왜 타입에러가 나는지 모르겠을때... / 비상용... / 디버깅용...
