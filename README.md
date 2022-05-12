@@ -23,6 +23,8 @@
   ```jsx
   Array.isArray(x); // true or false
   ```
+- const 키워드 설명
+  const 는 재할당을 막아주는 키워드임. const 로 선언된 object 변수의 안의 값은 변경 가능
 
 ## 1강
 
@@ -157,3 +159,48 @@ assertion 막 쓰지 마라! 문법의 용도는 다음과 같다.
 2. 무슨 타입이 들어올지 100% 확실할 때 쓴다. 정말 확실할때!!! -> 근데 그냥 if문 쓰면 되는건데...
 
 so... 남이 짠 코드 수정할때 / 왜 타입에러가 나는지 모르겠을때... / 비상용... / 디버깅용...
+
+## 6강
+
+`type alias` : type 별칭 → type 변수
+
+type 이름은 UpperCammelCase 로 작성하는 것이 국룰
+
+```tsx
+type Animal = string | number | undefined;
+let 동물: Animal = "kim";
+
+type AnimalObj = { name: string; age: number };
+let 동물Obj: AnimalObj = { name: "kim", age: 123 };
+```
+
+ts를 사용하면 const 로 선언된 값 변경 오류 내줌
+
+```tsx
+type Girlfriend = {
+  readonly name?: string; // readonly -> 수정하면 오류를 내줌
+  // ? : 선택 사항  name?: string === string | undefined
+};
+const 여친: Girlfriend = {
+  name: "엠버",
+};
+// 여친.name = "주연"; // editor 오류 발생, 실제 js에서는 바꿔줌. 실행 됨.
+```
+
+`extend`: type 키워드 여러개 합친다.
+
+```tsx
+// string, number 타입
+type Name = string;
+type Age = number;
+type Person = Name | Age;
+
+// 2. object extend === object 합치기
+type PositionX = { x: number };
+type PositionY = { y: number };
+type NewType = PositionX & PositionY; // { x: number, y: number } 둘 다 있어야함
+type NewType2 = PositionX | PositionY; // 둘 중에 하나만 있어도 됨
+
+let position: NewType = { x: 10, y: 20 };
+let position2: NewType2 = { x: 10 };
+```
