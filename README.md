@@ -25,6 +25,18 @@
   ```
 - const 키워드 설명
   const 는 재할당을 막아주는 키워드임. const 로 선언된 object 변수의 안의 값은 변경 가능
+- `callback` 함수
+  ```tsx
+  function 함수11(a: Function) {
+    a();
+  }
+  function 함수22() {
+    console.log(123);
+  }
+  함수11(함수22);
+  // 함수11 안에서 함수22를 실행시키고 싶다.
+  // 함수22: 콜백함수
+  ```
 
 ## 1강
 
@@ -235,4 +247,32 @@ function Q1(x: "가위" | "바위" | "보"): ("가위" | "바위" | "보")[] {
 var 자료 = { name: "kim" } as const; // as const -> 자료.name 의 타입을 kim으로 한다.
 function 내함수(a: "kim") {}
 내함수(자료.name); // as const 를 사용함으로서 자료.name 의 타입이 kim으로 지정됨
+```
+
+## 7강
+
+type alias에 함수 type 지정 하는 방법
+
+1. 함수타입은 () => {} 화살표 함수로 사용해야
+2. 함수 표현식
+
+```tsx
+type 함수타입 = (a: string) => number;
+
+let 함수8: 함수타입 = function (a) {
+  return 10;
+};
+```
+
+object 안에 함수 만들 수 있음
+
+```tsx
+let 회원정보 = {
+  name: "kim",
+  plusOne(a: number): number {
+    return a + 1;
+  },
+  changeName: () => {},
+};
+회원정보.plusOne(1);
 ```
