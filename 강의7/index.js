@@ -16,5 +16,5 @@ function Q1(x) {
 }
 // const 변수의 한계 -> Literal type이 보완해줄 수 있음
 var 자료 = { name: "kim" };
-function 내함수(a) { }
-내함수(자료.name);
+function 내함수9(a) { }
+내함수9(자료.name);

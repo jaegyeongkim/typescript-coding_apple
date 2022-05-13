@@ -20,5 +20,5 @@ function Q1(x: "가위" | "바위" | "보"): ("가위" | "바위" | "보")[] {
 // const 변수의 한계 -> Literal type이 보완해줄 수 있음
 
 var 자료 = { name: "kim" } as const;
-function 내함수(a: "kim") {}
-내함수(자료.name);
+function 내함수9(a: "kim") {}
+내함수9(자료.name);

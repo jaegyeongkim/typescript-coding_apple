@@ -37,6 +37,13 @@
   // 함수11 안에서 함수22를 실행시키고 싶다.
   // 함수22: 콜백함수
   ```
+- html 직접 건드는 방법
+  ```tsx
+  let 제목 = document.querySelector("#title"); // title 이라는 아이디의 dom 요소에
+  if (제목 !== null) {
+    제목.innerHTML = "반가워요"; // 내용을 바꾼다.
+  }
+  ```
 
 ## 1강
 
@@ -217,7 +224,7 @@ let position: NewType = { x: 10, y: 20 };
 let position2: NewType2 = { x: 10 };
 ```
 
-## 6강
+## 7강
 
 `Literal Types`
 
@@ -249,7 +256,7 @@ function 내함수(a: "kim") {}
 내함수(자료.name); // as const 를 사용함으로서 자료.name 의 타입이 kim으로 지정됨
 ```
 
-## 7강
+## 8강
 
 type alias에 함수 type 지정 하는 방법
 
@@ -276,3 +283,13 @@ let 회원정보 = {
 };
 회원정보.plusOne(1);
 ```
+
+## 9강
+
+Narrowing 하는 5가지 방법
+
+1. if문 사용 → 가장 일반적인 거 같음
+2. instanceof 연산자 사용
+3. as 사용
+4. ?. 사용 → optional chaning
+5. tsconfig.json 에서 null 체크를 false 로 바꿔줌 → 귀찮은 strict 모드 끈다.

@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "strictNullChecks": true,
+    "lib": ["dom", "es2021"]
   },
   "extends": "@tsconfig/node16/tsconfig.json"
 }
