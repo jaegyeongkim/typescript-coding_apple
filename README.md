@@ -44,6 +44,34 @@
     제목.innerHTML = "반가워요"; // 내용을 바꾼다.
   }
   ```
+- class 및 prototype
+  같은 객체 많이 만들어야할때 사용하셈
+  예를 들어 lol 캐릭터 객체들 많이 만들고 싶음 → 이때 사용 ㄱㄱ
+  ```jsx
+  class Hero {
+    // 부모
+    constructor(q) {
+      this.q = q;
+      this.w = "snowball";
+    }
+  }
+  // prototype: === 유전자라 생각하면 됨
+  // 이렇게 추가하면 nunu, garen 에서는 안 보이지만, nunu.name, garen.name 으로 사용할 수 있음
+  Hero.prototype.name = "kim";
+
+  let nunu = new Hero("consume"); // 자식
+  let garen = new Hero("strike"); // 자식
+  ```
+  array 자료에 .sort(), .length 사용할 수 있는 이유는?????? → Array 가 class 문법에서 prototype에 미리 작성해 두어서
+  Array 라는 부모 유전자에 .sort(), .length 가 있기 때문에
+  ```jsx
+  let 어레이 = [4, 2, 1];
+  let 어레이 = new Array(4, 2, 1); // class
+  ```
+  모든 array 자료에서 쓸 수 잇는 함수 추가??
+  ```jsx
+  Array.prototype.함수 = function () {]
+  ```
 
 ## 1강
 
@@ -289,7 +317,78 @@ let 회원정보 = {
 Narrowing 하는 5가지 방법
 
 1. if문 사용 → 가장 일반적인 거 같음
-2. instanceof 연산자 사용
-3. as 사용
+
+   ```tsx
+   let 제목 = document.querySelector("#title");
+   if (제목 != null) {
+     제목.innerHTML = "반갑소";
+   }
+   ```
+
+2. instanceof 연산자 사용 // 가장 많이 사용하게 될 것임
+
+   부모로부터 기인한 것이냐
+
+   ```tsx
+   let 제목 = document.querySelector("#title");
+   if (제목 instanceof HTMLElement) {
+     제목.innerHTML = "반갑소";
+   }
+   ```
+
+3. assertion 사용 → as 사용
+
+   ```tsx
+   let 제목 = document.querySelector("#title") as HTMLElement;
+   제목.innerHTML = "반갑소";
+   ```
+
 4. ?. 사용 → optional chaning
+
+   ```tsx
+   let 제목 = document.querySelector("#title");
+   if (제목?.innerHTML != undefined) {
+     제목.innerHTML = "반갑소";
+   }
+   ```
+
 5. tsconfig.json 에서 null 체크를 false 로 바꿔줌 → 귀찮은 strict 모드 끈다.
+
+## 10, 11강
+
+class 및 prototype
+
+같은 객체 많이 만들어야할때 사용하셈
+
+예를 들어 lol 캐릭터 객체들 많이 만들고 싶음 → 이때 사용 ㄱㄱ
+
+```jsx
+class Hero {
+  // 부모
+  constructor(q) {
+    this.q = q;
+    this.w = "snowball";
+  }
+}
+// prototype: === 유전자라 생각하면 됨
+// 이렇게 추가하면 nunu, garen 에서는 안 보이지만, nunu.name, garen.name 으로 사용할 수 있음
+Hero.prototype.name = "kim";
+
+let nunu = new Hero("consume"); // 자식
+let garen = new Hero("strike"); // 자식
+```
+
+array 자료에 .sort(), .length 사용할 수 있는 이유는?????? → Array 가 class 문법에서 prototype에 미리 작성해 두어서
+
+Array 라는 부모 유전자에 .sort(), .length 가 있기 때문에
+
+```jsx
+let 어레이 = [4, 2, 1];
+let 어레이 = new Array(4, 2, 1); // class
+```
+
+모든 array 자료에서 쓸 수 잇는 함수 추가??
+
+```jsx
+Array.prototype.함수 = function () {]
+```
